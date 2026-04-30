@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prachi Sharma — Architecture, AI, and HR Tech</title>
+<meta name="description" content="Principal-level architect with 20 years in Oracle HCM and current hands-on AI workflow design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1814;
+    --ink-soft: #4a463e;
+    --ink-faint: #8a857a;
+    --paper: #f5f1e8;
+    --paper-warm: #ebe5d3;
+    --rule: #d4cdb8;
+    --accent: #b8421a;
+    --accent-soft: #d65a30;
+    --teal: #2a5d52;
+    --display: 'Fraunces', Georgia, serif;
+    --body: 'Inter Tight', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper); color: var(--ink); font-family: var(--body);
+    font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 100; mix-blend-mode: multiply;
+  }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 2.5rem; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(245, 241, 232, 0.92); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule); z-index: 50;
+    padding: 1.1rem 2.5rem; display: flex; justify-content: space-between; align-items: baseline;
+  }
+  nav .name { font-family: var(--display); font-weight: 500; font-size: 1.05rem; }
+  nav .links { display: flex; gap: 2rem; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.12em; }
+  nav .links a { color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
+  nav .links a:hover { color: var(--accent); }
+  @media (max-width: 720px) {
+    nav { padding: 1rem 1.5rem; }
+    nav .links { gap: 1.2rem; font-size: 0.7rem; }
+    nav .links a:nth-child(4) { display: none; }
+  }
+
+  .hero { padding: 9rem 0 5rem; border-bottom: 1px solid var(--rule); }
+  .hero-eyebrow {
+    font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase;
+    letter-spacing: 0.18em; color: var(--accent); margin-bottom: 2rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(2.5rem, 6.5vw, 5.2rem);
+    line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 2rem; max-width: 18ch;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent); font-weight: 400; position: relative; display: inline-block; }
+  .hero h1 em::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 8px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 8'%3E%3Cpath d='M2 5 Q50 1 100 4 T198 3' stroke='%23b8421a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
+    background-size: 100% 100%; opacity: 0.55;
+  }
+  .hero-lede { font-size: 1.2rem; line-height: 1.55; color: var(--ink-soft); max-width: 58ch; margin-bottom: 3rem; }
+
+  .hero-scroll {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 4px;
+    transition: all 0.2s;
+  }
+  .hero-scroll:hover { color: var(--accent-soft); border-color: var(--accent-soft); transform: translateY(2px); }
+
+  section { padding: 6rem 0; border-bottom: 1px solid var(--rule); }
+  .section-eyebrow { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 1.5rem; }
+  .section-title { font-family: var(--display); font-weight: 400; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -0.015em; max-width: 22ch; margin-bottom: 3rem; }
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  .projects { display: flex; flex-direction: column; }
+  .project { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding: 3rem 0; border-top: 1px solid var(--rule); align-items: start; }
+  .project:last-child { border-bottom: 1px solid var(--rule); }
+  @media (max-width: 720px) { .project { grid-template-columns: 1fr; gap: 1rem; padding: 2.5rem 0; } }
+
+  .project-meta { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-faint); line-height: 1.7; }
+  .project-meta .label { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--ink-soft); display: block; margin-top: 0.8rem; margin-bottom: 0.2rem; }
+  .project-meta .label:first-child { margin-top: 0; }
+  .project-meta .tag { display: inline-block; background: var(--paper-warm); padding: 0.15rem 0.5rem; margin: 0.15rem 0.2rem 0.15rem 0; font-size: 0.68rem; color: var(--ink-soft); }
+
+  .project-body h3 { font-family: var(--display); font-weight: 500; font-size: 1.85rem; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1rem; }
+  .project-body .subhead { font-size: 1rem; color: var(--ink-soft); font-style: italic; margin-bottom: 1.5rem; }
+  .project-body p { font-size: 1rem; line-height: 1.7; color: var(--ink-soft); margin-bottom: 1rem; max-width: 65ch; }
+  .project-body .what-it-is { color: var(--ink); font-size: 1.05rem; }
+  .project-body strong { color: var(--ink); font-weight: 500; }
+
+  .architecture-callout { background: var(--paper-warm); border-left: 3px solid var(--accent); padding: 1.2rem 1.5rem; margin: 1.5rem 0; max-width: 65ch; }
+  .architecture-callout .ac-label { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.5rem; }
+  .architecture-callout p { font-size: 0.95rem; color: var(--ink); margin-bottom: 0; line-height: 1.6; }
+
+  .arch-diagram { margin: 2rem 0; padding: 1.8rem 1.5rem; background: #fdfaf2; border: 1px solid var(--rule); }
+  .arch-diagram .arch-label { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink-faint); margin-bottom: 1rem; }
+  .arch-diagram svg { width: 100%; height: auto; display: block; }
+
+  .project-link { display: inline-block; margin-top: 1rem; font-family: var(--mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+  .project-link:hover { color: var(--accent-soft); border-color: var(--accent-soft); }
+
+  .tenure-header { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 1.5rem; border-bottom: 1px solid var(--rule); margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+  .tenure-header h3 { font-family: var(--display); font-weight: 500; font-size: 1.6rem; }
+  .tenure-header .tenure-meta { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.1em; }
+  .oracle-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 4rem; margin-top: 2rem; }
+  @media (max-width: 720px) { .oracle-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .oracle-item h4 { font-family: var(--display); font-weight: 500; font-size: 1.25rem; margin-bottom: 0.5rem; line-height: 1.3; }
+  .oracle-item .role-tag { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--teal); margin-bottom: 0.8rem; display: block; }
+  .oracle-item p { font-size: 0.95rem; line-height: 1.65; color: var(--ink-soft); }
+  .oracle-item strong { color: var(--ink); font-weight: 500; }
+
+  .about-content { display: grid; grid-template-columns: 1fr 300px; gap: 4rem; }
+  @media (max-width: 720px) { .about-content { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .about-content p { font-size: 1.05rem; line-height: 1.7; color: var(--ink-soft); margin-bottom: 1.2rem; }
+  .about-content > div > p:first-child::first-letter { font-family: var(--display); font-size: 3.8rem; float: left; line-height: 0.9; margin: 0.3rem 0.6rem 0 0; color: var(--accent); font-weight: 400; }
+  .about-content strong { color: var(--ink); font-weight: 500; }
+  .about-side h4 { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-top: 1.8rem; margin-bottom: 0.8rem; border-bottom: 1px solid var(--rule); padding-bottom: 0.5rem; }
+  .about-side h4:first-child { margin-top: 0; }
+  .about-side p, .about-side li { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.6; }
+  .about-side ul { list-style: none; }
+  .about-side li { padding: 0.3rem 0; }
+  .about-side a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink-faint); }
+  .about-side a:hover { color: var(--accent); border-color: var(--accent); }
+
+  footer { padding: 5rem 0 3rem; text-align: center; background: var(--paper-warm); }
+  footer .quote { font-family: var(--display); font-style: italic; font-size: 1.4rem; line-height: 1.4; color: var(--ink); max-width: 36ch; margin: 0 auto 2rem; }
+  footer .meta { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink-faint); }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-eyebrow, .hero h1, .hero-lede, .hero-scroll { animation: rise 0.7s cubic-bezier(0.2, 0.6, 0.2, 1) backwards; }
+  .hero h1 { animation-delay: 0.1s; }
+  .hero-lede { animation-delay: 0.25s; }
+  .hero-scroll { animation-delay: 0.4s; }
+
+  .diag-box { fill: #f0e9d8; stroke: #c2b89c; stroke-width: 1; }
+  .diag-box-accent { fill: #f3d9c8; stroke: #b8421a; stroke-width: 1; }
+  .diag-box-gate { fill: #fae3d3; stroke: #b8421a; stroke-width: 1.3; }
+  .diag-box-store { fill: #d8e8e3; stroke: #2a5d52; stroke-width: 1; }
+  .diag-text { font-family: 'Inter Tight', sans-serif; font-size: 13px; fill: #1a1814; font-weight: 500; }
+  .diag-text-sm { font-family: 'Inter Tight', sans-serif; font-size: 11px; fill: #4a463e; }
+  .diag-arrow { fill: none; stroke: #4a463e; stroke-width: 1.2; }
+  .diag-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #8a857a; text-transform: uppercase; letter-spacing: 0.08em; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="name">Prachi Sharma</div>
+  <div class="links">
+    <a href="#projects">Projects</a>
+    <a href="#oracle">Oracle</a>
+    <a href="#about">About</a>
+    <a href="mailto:prachi.sharma65@gmail.com">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">Architect · 20 years Oracle HCM · Independent AI projects</div>
+    <h1>I design systems where the <em>LLM</em> goes where it's strong, and <em>code</em> goes where it has to be exact.</h1>
+    <p class="hero-lede">Twenty years building and validating Oracle HCM ecosystems at Principal level. Currently architecting production AI workflows in my own time — real pipelines with deliberate decisions about idempotency, human-in-the-loop gates, and where determinism matters more than flexibility.</p>
+
+    <a href="#projects" class="hero-scroll">See the work ↓</a>
+  </div>
+</header>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-eyebrow">01 — Independent Projects</div>
+    <h2 class="section-title">Production AI workflows, built and operated <em>solo</em>.</h2>
+
+    <div class="projects">
+
+      <article class="project">
+        <div class="project-meta">
+          <span class="label">Year</span>2026
+          <span class="label">Role</span>Architect &amp; operator
+          <span class="label">Stack</span>
+          <span class="tag">Apps Script</span><span class="tag">GitHub Actions</span><span class="tag">Python</span><span class="tag">OpenSCAD</span><span class="tag">Sheets</span>
+          <span class="label">Pattern</span>
+          <span class="tag">Decoupled pipeline</span><span class="tag">2-stage gate</span>
+        </div>
+        <div class="project-body">
+          <h3>Custom 3D-Print Order Pipeline</h3>
+          <p class="subhead">eBay store · Personalized printed goods</p>
+          <p class="what-it-is"><strong>What it is:</strong> A two-platform decoupled pipeline that turns eBay order emails into print-ready STL files for a Bambu printer.</p>
+          <p>Apps Script polls Gmail, regex-parses eBay order notifications, and writes structured rows to a Google Sheet with status <em>To Be Printed</em>. A scheduled GitHub Actions workflow reads the sheet, generates parameterized STLs via OpenSCAD, and commits them back to the repo for human review before printing.</p>
+
+          <div class="arch-diagram">
+            <div class="arch-label">Architecture diagram</div>
+            <svg viewBox="0 0 700 480" role="img" aria-label="eBay 3D print pipeline architecture">
+              <defs>
+                <marker id="ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M0 0 L10 5 L0 10 z" fill="#4a463e"/>
+                </marker>
+              </defs>
+              <!-- Pipeline A row -->
+              <text x="20" y="20" class="diag-label">Pipeline A · Apps Script (time-driven)</text>
+              <rect x="20" y="35" width="150" height="55" class="diag-box" rx="4"/>
+              <text x="95" y="60" class="diag-text" text-anchor="middle">Gmail</text>
+              <text x="95" y="78" class="diag-text-sm" text-anchor="middle">eBay sale emails</text>
+              <rect x="210" y="35" width="180" height="55" class="diag-box-accent" rx="4"/>
+              <text x="300" y="60" class="diag-text" text-anchor="middle">Apps Script</text>
+              <text x="300" y="78" class="diag-text-sm" text-anchor="middle">Regex parse + dedup</text>
+              <rect x="430" y="35" width="150" height="55" class="diag-box" rx="4"/>
+              <text x="505" y="60" class="diag-text" text-anchor="middle">Alert email</text>
+              <text x="505" y="78" class="diag-text-sm" text-anchor="middle">If data missing</text>
+              <line x1="170" y1="62" x2="208" y2="62" class="diag-arrow" marker-end="url(#ar1)"/>
+              <line x1="390" y1="62" x2="428" y2="62" class="diag-arrow" marker-end="url(#ar1)"/>
+
+              <!-- Sheet -->
+              <rect x="190" y="160" width="320" height="65" class="diag-box-store" rx="4"/>
+              <text x="350" y="187" class="diag-text" text-anchor="middle">Google Sheet</text>
+              <text x="350" y="207" class="diag-text-sm" text-anchor="middle">Integration contract + status column</text>
+              <line x1="300" y1="90" x2="300" y2="158" class="diag-arrow" marker-end="url(#ar1)"/>
+              <text x="310" y="128" class="diag-text-sm">writes status = To Be Printed</text>
+
+              <!-- Pipeline B row (label moved well below sheet, far right of the sheet bottom) -->
+              <text x="20" y="270" class="diag-label">Pipeline B · GitHub Actions (cron, every 30 min)</text>
+              <line x1="350" y1="225" x2="350" y2="287" class="diag-arrow" marker-end="url(#ar1)"/>
+              <text x="360" y="262" class="diag-text-sm">reads rows where status = To Be Printed</text>
+
+              <rect x="20" y="295" width="150" height="55" class="diag-box-accent" rx="4"/>
+              <text x="95" y="320" class="diag-text" text-anchor="middle">Python script</text>
+              <text x="95" y="338" class="diag-text-sm" text-anchor="middle">Substring router</text>
+              <rect x="210" y="295" width="180" height="55" class="diag-box-accent" rx="4"/>
+              <text x="300" y="320" class="diag-text" text-anchor="middle">OpenSCAD</text>
+              <text x="300" y="338" class="diag-text-sm" text-anchor="middle">Deterministic compile</text>
+              <rect x="430" y="295" width="150" height="55" class="diag-box-accent" rx="4"/>
+              <text x="505" y="320" class="diag-text" text-anchor="middle">git commit STL</text>
+              <text x="505" y="338" class="diag-text-sm" text-anchor="middle">Repo as artifact store</text>
+              <line x1="170" y1="322" x2="208" y2="322" class="diag-arrow" marker-end="url(#ar1)"/>
+              <line x1="390" y1="322" x2="428" y2="322" class="diag-arrow" marker-end="url(#ar1)"/>
+
+              <!-- Human gate -->
+              <text x="20" y="410" class="diag-label">Human gate · 2 stages</text>
+              <rect x="20" y="425" width="270" height="32" class="diag-box-gate" rx="4"/>
+              <text x="155" y="446" class="diag-text" text-anchor="middle">Stage 1: STL inspection</text>
+              <rect x="310" y="425" width="270" height="32" class="diag-box-gate" rx="4"/>
+              <text x="445" y="446" class="diag-text" text-anchor="middle">Stage 2: Print dispatch</text>
+              <!-- git commit -> Stage 1 (curve down-left) -->
+              <path d="M 505 350 Q 505 390 155 423" class="diag-arrow" marker-end="url(#ar1)"/>
+              <!-- Stage 1 -> Stage 2 -->
+              <line x1="290" y1="441" x2="308" y2="441" class="diag-arrow" marker-end="url(#ar1)"/>
+            </svg>
+          </div>
+
+          <div class="architecture-callout">
+            <div class="ac-label">Architectural decision</div>
+            <p>Fully deterministic at runtime — no LLM in the data path. Gemini was used at development time to write the regex parsers and OpenSCAD templates, but the running system is plain code. In a pipeline where wrong output costs filament, determinism is more valuable than flexibility.</p>
+          </div>
+
+          <p><strong>Two-stage human gate:</strong> Stage 1 validates that the customization matches buyer intent. Stage 2 dispatches to the printer manually, deliberately unautomated — automating it without a print queue manager would <em>cause</em> the resource collisions it's meant to prevent on a single-printer setup.</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-meta">
+          <span class="label">Year</span>2026
+          <span class="label">Role</span>Architect &amp; operator
+          <span class="label">Stack</span>
+          <span class="tag">Make.com</span><span class="tag">Gemini</span><span class="tag">GitHub Actions</span><span class="tag">Python</span><span class="tag">YouTube API</span>
+          <span class="label">Pattern</span>
+          <span class="tag">Hybrid pipeline</span><span class="tag">State-via-location</span>
+        </div>
+        <div class="project-body">
+          <h3>AI-Assisted YouTube Reel Pipeline</h3>
+          <p class="subhead">300+ Dohas channel · Publishing every 3 days</p>
+          <p class="what-it-is"><strong>What it is:</strong> A hybrid two-stage pipeline that turns raw video reels into published YouTube content with human-reviewed AI-drafted captions.</p>
+          <p><strong>Stage 1</strong> runs on Make.com (low-code orchestration): Gemini transcribes each reel, drafts a caption and hook, writes the row to a Google Sheet, and moves the reel to a <em>processed</em> folder for idempotency. <strong>Stage 2</strong> runs as a Python job on GitHub Actions: reads approved rows from the sheet, fetches the matched reel from Drive, and posts to YouTube every 3 days.</p>
+
+          <div class="arch-diagram">
+            <div class="arch-label">Architecture diagram</div>
+            <svg viewBox="0 0 700 440" role="img" aria-label="YouTube reel pipeline architecture">
+              <defs>
+                <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M0 0 L10 5 L0 10 z" fill="#4a463e"/>
+                </marker>
+              </defs>
+              <text x="20" y="20" class="diag-label">Stage 1 · Make.com (event-driven on Drive)</text>
+              <rect x="20" y="35" width="150" height="55" class="diag-box" rx="4"/>
+              <text x="95" y="60" class="diag-text" text-anchor="middle">Drive: Inbox</text>
+              <text x="95" y="78" class="diag-text-sm" text-anchor="middle">New reel dropped</text>
+              <rect x="210" y="35" width="180" height="55" class="diag-box-accent" rx="4"/>
+              <text x="300" y="60" class="diag-text" text-anchor="middle">Make.com</text>
+              <text x="300" y="78" class="diag-text-sm" text-anchor="middle">Calls Gemini, writes sheet</text>
+              <rect x="430" y="35" width="150" height="55" class="diag-box-accent" rx="4"/>
+              <text x="505" y="60" class="diag-text" text-anchor="middle">Gemini</text>
+              <text x="505" y="78" class="diag-text-sm" text-anchor="middle">Transcribe + draft</text>
+              <line x1="170" y1="62" x2="208" y2="62" class="diag-arrow" marker-end="url(#ar2)"/>
+              <line x1="390" y1="62" x2="428" y2="62" class="diag-arrow" marker-end="url(#ar2)"/>
+
+              <!-- Drive: Processed (side branch from Make) -->
+              <rect x="20" y="130" width="150" height="55" class="diag-box" rx="4"/>
+              <text x="95" y="155" class="diag-text" text-anchor="middle">Drive: Processed</text>
+              <text x="95" y="173" class="diag-text-sm" text-anchor="middle">State-via-location</text>
+              <line x1="270" y1="90" x2="170" y2="155" class="diag-arrow" marker-end="url(#ar2)"/>
+
+              <!-- Sheet -->
+              <rect x="210" y="200" width="370" height="65" class="diag-box-store" rx="4"/>
+              <text x="395" y="227" class="diag-text" text-anchor="middle">Google Sheet</text>
+              <text x="395" y="247" class="diag-text-sm" text-anchor="middle">Caption + status (Pending → Approved)</text>
+              <line x1="330" y1="90" x2="330" y2="198" class="diag-arrow" marker-end="url(#ar2)"/>
+
+              <!-- Human gate -->
+              <rect x="210" y="290" width="370" height="32" class="diag-box-gate" rx="4"/>
+              <text x="395" y="311" class="diag-text" text-anchor="middle">Human gate: Caption review &amp; approval</text>
+              <line x1="395" y1="265" x2="395" y2="288" class="diag-arrow" marker-end="url(#ar2)"/>
+
+              <!-- Stage 2 -->
+              <text x="20" y="365" class="diag-label">Stage 2 · GitHub Actions (every 3 days)</text>
+              <path d="M 395 322 Q 395 360 110 383" class="diag-arrow" marker-end="url(#ar2)"/>
+
+              <rect x="20" y="385" width="180" height="35" class="diag-box-accent" rx="4"/>
+              <text x="110" y="407" class="diag-text" text-anchor="middle">Python: read Approved</text>
+              <rect x="230" y="385" width="180" height="35" class="diag-box-accent" rx="4"/>
+              <text x="320" y="407" class="diag-text" text-anchor="middle">Drive fetch reel</text>
+              <rect x="440" y="385" width="200" height="35" class="diag-box-accent" rx="4"/>
+              <text x="540" y="407" class="diag-text" text-anchor="middle">YouTube API publish</text>
+              <line x1="200" y1="402" x2="228" y2="402" class="diag-arrow" marker-end="url(#ar2)"/>
+              <line x1="410" y1="402" x2="438" y2="402" class="diag-arrow" marker-end="url(#ar2)"/>
+            </svg>
+          </div>
+
+          <div class="architecture-callout">
+            <div class="ac-label">Architectural decision</div>
+            <p>Designed as augmentation, not full automation — early tests showed caption quality drift when humans were removed. Low-code where the work is exploratory and creative; code where the work is operational and repeatable.</p>
+          </div>
+
+          <p><strong>State-via-location idempotency:</strong> a reel's folder location <em>is</em> its processing state. No separate database, no flag column to maintain, no race conditions between scheduler and worker.</p>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-meta">
+          <span class="label">Year</span>2025
+          <span class="label">Role</span>End-to-end designer
+          <span class="label">Stack</span>
+          <span class="tag">React</span><span class="tag">Vercel</span><span class="tag">Python evals</span>
+          <span class="label">Pattern</span>
+          <span class="tag">Validation framework</span><span class="tag">Provenance</span>
+          <a class="project-link" href="https://workforce-digest.vercel.app" target="_blank" rel="noopener">View prototype →</a>
+        </div>
+        <div class="project-body">
+          <h3>Workforce Digest</h3>
+          <p class="subhead">Concept prototype — SMB HR analytics</p>
+          <p class="what-it-is"><strong>What it is:</strong> A weekly Monday brief that turns HRIS data into 3–4 things HR managers should act on, with full transparency about how each alert was derived.</p>
+          <p>Built end-to-end: rule-based detection engine, transparent provenance for every alert, multi-layer validation framework (cross-signal corroboration, outcome-based checks, randomized holdout), and a 10-case Python eval suite for catching regressions.</p>
+
+          <div class="architecture-callout">
+            <div class="ac-label">Architectural decision</div>
+            <p>Designed the validation layer specifically to address the <em>prevention paradox</em> — when an intervention succeeds, you can never know if the alert was right or noisy. Cross-signal corroboration plus outcome-based checks plus a randomized holdout were necessary because no single check could distinguish a genuinely caught risk from a false positive that resolved on its own.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="oracle">
+  <div class="container">
+    <div class="section-eyebrow">02 — Day Job</div>
+    <h2 class="section-title">Twenty years at Oracle. Principal-level <em>product integrity</em> across the HCM stack.</h2>
+
+    <div class="tenure-header">
+      <h3>Oracle US — Principal Member Technical Staff, Product Integrity Lead</h3>
+      <span class="tenure-meta">June 2006 → April 2026</span>
+    </div>
+
+    <p style="font-size: 1.05rem; line-height: 1.7; color: var(--ink-soft); max-width: 65ch; margin-bottom: 3rem;">Led end-to-end validation across major Oracle HCM cloud migrations — EBS, PeopleSoft, and Taleo into Fusion. Technical gatekeeper for high-priority enterprise accounts, partnering directly with Product Management and Engineering to influence roadmap from defect patterns. Six threads of work shaped the trajectory.</p>
+
+    <div class="oracle-grid">
+      <div class="oracle-item">
+        <span class="role-tag">AI Feature Validation · 2025–2026</span>
+        <h4>LLM-based Performance Sentiment Analysis</h4>
+        <p>Validated Oracle's LLM-powered sentiment classification for performance review comments — manager and worker feedback classified as positive, negative, or neutral. Identified a critical failure mode: noisy or ambiguous comments that should have been classified neutral were forced into positive or negative buckets, exposing the limits of LLM confidence-without-uncertainty in HR-critical workflows.</p>
+      </div>
+      <div class="oracle-item">
+        <span class="role-tag">AI Feature Validation · 2025–2026</span>
+        <h4>People Leader Workbench</h4>
+        <p>Validated Oracle's AI-powered intelligent application for HR leaders inside Fusion Data Intelligence — talent insights and recommended actions surfaced directly to people managers. Worked across the prebuilt analytics layer and the actionable recommendations surface.</p>
+      </div>
+      <div class="oracle-item">
+        <span class="role-tag">Project Lead · Security Architecture</span>
+        <h4>AOR-based Configurable Security in FDI</h4>
+        <p>Led validation across <strong>33 AOR (Area of Responsibility) dimensions</strong> spanning the entire Fusion HCM footprint — &gt;15 subject areas. FDI now generates data roles automatically based on a user's source-system AOR assignments, restricting analytics access in lock-step with operational security. A horizontal architectural change touching every HCM module.</p>
+      </div>
+      <div class="oracle-item">
+        <span class="role-tag">R&amp;D · QA Tooling</span>
+        <h4>Codex-assisted PL/SQL Delta Detection</h4>
+        <p>Researched applying LLM coding assistants to validation work. Found that for low-change ID-based enhancements, pasting PL/SQL across all subject areas into Codex and asking it to detect identical changes <strong>reduced analysis time from one day to one hour</strong>. Built the workflow and rolled it into team practice.</p>
+      </div>
+      <div class="oracle-item">
+        <span class="role-tag">Horizontal Expansion · 2006–2026</span>
+        <h4>Core HCM → every module → OTBI + FDI</h4>
+        <p>Started in core HCM and expanded across Transfers, Performance, Goals, Talent, Payroll, Benefits, Compensation, Gigs, Helpdesk, Health &amp; Safety, Profiles, and Talent Review. Then took on FDI (Oracle's ETL-based analytics platform) <strong>in parallel with OTBI</strong> — operating across both analytics platforms simultaneously through the end of my tenure, covering the operational and analytical surface of Fusion HCM end-to-end.</p>
+      </div>
+      <div class="oracle-item">
+        <span class="role-tag">Knowledge Capture · Internal</span>
+        <h4>HCM Module Video Library</h4>
+        <p>Created short videos on every HCM area — how Fusion source data maps into OTBI subject areas, how each subject area works, what new hires need to know to ramp fast. Library is still actively used by my team and adjacent teams. <strong>Ramp time on team-board work dropped from weeks to days.</strong></p>
+      </div>
+    </div>
+
+    <p style="font-family: var(--mono); font-size: 0.78rem; color: var(--ink-faint); margin-top: 3rem; padding-top: 2rem; border-top: 1px dotted var(--rule); text-transform: uppercase; letter-spacing: 0.1em;">Earlier: Satyam Computer Services — Systems Engineer, GE Healthcare global Siebel consolidation (2003–2005)</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-eyebrow">03 — About</div>
+    <h2 class="section-title">How I think about the work.</h2>
+
+    <div class="about-content">
+      <div>
+        <p>I'm an architect, not an implementer. I describe what I want a system to do; LLMs translate that into the regex, the SQL, the Python. What I bring is the layer above the code — decisions about where humans belong in a workflow, what state model survives partial failure, when determinism is worth more than flexibility, and which trade-offs the LLM can't make for you.</p>
+
+        <p>Twenty years at Oracle taught me what enterprise validation actually demands: not just finding bugs, but understanding which bugs would have escaped to a customer's payroll run, which ones would trigger a hot-account escalation, and which ones reveal a deeper architectural mismatch worth raising with Product Management. The independent AI projects on this site are an extension of that instinct — every architectural decision is named, every failure mode is owned, every human gate is there because something downstream costs real money or real trust if it goes wrong.</p>
+
+        <p>I don't write production code by hand. I architect systems and use LLMs to write the code, and I reason about trade-offs at the system and workflow level. That combination — twenty years of HCM domain depth plus current, hands-on AI architecture practice — is the rare pairing I'm trying to put to work.</p>
+      </div>
+
+      <aside class="about-side">
+        <h4>Currently</h4>
+        <p>Open to senior architecture roles. HR Tech, AI workflow design, or the intersection of both.</p>
+        <h4>Education</h4>
+        <p>B.Tech, Electronics &amp; Telecommunication Engineering</p>
+        <h4>Certifications</h4>
+        <ul>
+          <li>IBM Product Management Professional</li>
+          <li>Google AI Essentials</li>
+          <li>Google AI Professional</li>
+        </ul>
+        <h4>Authorization</h4>
+        <p>U.S. Green Card holder</p>
+        <h4>Reach me</h4>
+        <ul>
+          <li><a href="mailto:prachi.sharma65@gmail.com">prachi.sharma65@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/prachi-sharma-603aa81/" target="_blank" rel="noopener">LinkedIn →</a></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p class="quote">"LLM where it's strong. Code where it has to be exact. Humans where the cost of being wrong is real."</p>
+    <p class="meta">Prachi Sharma · Portfolio · 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
