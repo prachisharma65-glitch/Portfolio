@@ -49,7 +49,7 @@
   @media (max-width: 720px) {
     nav { padding: 1rem 1.5rem; }
     nav .links { gap: 1.2rem; font-size: 0.7rem; }
-    nav .links a:nth-child(4) { display: none; }
+    nav .links a:nth-child(5) { display: none; }
   }
 
   .hero { padding: 9rem 0 5rem; border-bottom: 1px solid var(--rule); }
@@ -119,6 +119,24 @@
   .project-link { display: inline-block; margin-top: 1rem; font-family: var(--mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
   .project-link:hover { color: var(--accent-soft); border-color: var(--accent-soft); }
 
+  /* === Research & Analysis section === */
+  .analysis-card { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding: 3rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); align-items: start; }
+  @media (max-width: 720px) { .analysis-card { grid-template-columns: 1fr; gap: 1rem; padding: 2.5rem 0; } }
+  .analysis-meta { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-faint); line-height: 1.7; }
+  .analysis-meta .label { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--ink-soft); display: block; margin-top: 0.8rem; margin-bottom: 0.2rem; }
+  .analysis-meta .label:first-child { margin-top: 0; }
+  .analysis-meta .tag { display: inline-block; background: var(--paper-warm); padding: 0.15rem 0.5rem; margin: 0.15rem 0.2rem 0.15rem 0; font-size: 0.68rem; color: var(--ink-soft); }
+  .analysis-body h3 { font-family: var(--display); font-weight: 500; font-size: 1.85rem; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1rem; }
+  .analysis-body .subhead { font-size: 1rem; color: var(--ink-soft); font-style: italic; margin-bottom: 1.5rem; }
+  .analysis-body p { font-size: 1rem; line-height: 1.7; color: var(--ink-soft); margin-bottom: 1rem; max-width: 65ch; }
+  .analysis-body .lede { color: var(--ink); font-size: 1.05rem; }
+  .analysis-body strong { color: var(--ink); font-weight: 500; }
+  .findings-list { list-style: none; margin: 1.5rem 0 1.5rem; max-width: 65ch; }
+  .findings-list li { position: relative; padding: 0.8rem 0 0.8rem 2rem; border-top: 1px solid var(--rule); font-size: 0.98rem; line-height: 1.65; color: var(--ink-soft); }
+  .findings-list li:last-child { border-bottom: 1px solid var(--rule); }
+  .findings-list li::before { content: ""; position: absolute; left: 0.5rem; top: 1.35rem; width: 0.6rem; height: 1px; background: var(--accent); }
+  .findings-list strong { color: var(--ink); font-weight: 500; }
+
   .tenure-header { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 1.5rem; border-bottom: 1px solid var(--rule); margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
   .tenure-header h3 { font-family: var(--display); font-weight: 500; font-size: 1.6rem; }
   .tenure-header .tenure-meta { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.1em; }
@@ -168,6 +186,7 @@
   <div class="name">Prachi Sharma</div>
   <div class="links">
     <a href="#projects">Projects</a>
+    <a href="#analysis">Analysis</a>
     <a href="#oracle">Oracle</a>
     <a href="#about">About</a>
     <a href="mailto:prachi.sharma65@gmail.com">Contact</a>
@@ -214,7 +233,6 @@
                   <path d="M0 0 L10 5 L0 10 z" fill="#4a463e"/>
                 </marker>
               </defs>
-              <!-- Pipeline A row -->
               <text x="20" y="20" class="diag-label">Pipeline A · Apps Script (time-driven)</text>
               <rect x="20" y="35" width="150" height="55" class="diag-box" rx="4"/>
               <text x="95" y="60" class="diag-text" text-anchor="middle">Gmail</text>
@@ -228,14 +246,12 @@
               <line x1="170" y1="62" x2="208" y2="62" class="diag-arrow" marker-end="url(#ar1)"/>
               <line x1="390" y1="62" x2="428" y2="62" class="diag-arrow" marker-end="url(#ar1)"/>
 
-              <!-- Sheet -->
               <rect x="190" y="160" width="320" height="65" class="diag-box-store" rx="4"/>
               <text x="350" y="187" class="diag-text" text-anchor="middle">Google Sheet</text>
               <text x="350" y="207" class="diag-text-sm" text-anchor="middle">Integration contract + status column</text>
               <line x1="300" y1="90" x2="300" y2="158" class="diag-arrow" marker-end="url(#ar1)"/>
               <text x="310" y="128" class="diag-text-sm">writes status = To Be Printed</text>
 
-              <!-- Pipeline B row (label moved well below sheet, far right of the sheet bottom) -->
               <text x="20" y="270" class="diag-label">Pipeline B · GitHub Actions (cron, every 30 min)</text>
               <line x1="350" y1="225" x2="350" y2="287" class="diag-arrow" marker-end="url(#ar1)"/>
               <text x="360" y="262" class="diag-text-sm">reads rows where status = To Be Printed</text>
@@ -252,15 +268,12 @@
               <line x1="170" y1="322" x2="208" y2="322" class="diag-arrow" marker-end="url(#ar1)"/>
               <line x1="390" y1="322" x2="428" y2="322" class="diag-arrow" marker-end="url(#ar1)"/>
 
-              <!-- Human gate -->
               <text x="20" y="410" class="diag-label">Human gate · 2 stages</text>
               <rect x="20" y="425" width="270" height="32" class="diag-box-gate" rx="4"/>
               <text x="155" y="446" class="diag-text" text-anchor="middle">Stage 1: STL inspection</text>
               <rect x="310" y="425" width="270" height="32" class="diag-box-gate" rx="4"/>
               <text x="445" y="446" class="diag-text" text-anchor="middle">Stage 2: Print dispatch</text>
-              <!-- git commit -> Stage 1 (curve down-left) -->
               <path d="M 505 350 Q 505 390 155 423" class="diag-arrow" marker-end="url(#ar1)"/>
-              <!-- Stage 1 -> Stage 2 -->
               <line x1="290" y1="441" x2="308" y2="441" class="diag-arrow" marker-end="url(#ar1)"/>
             </svg>
           </div>
@@ -310,24 +323,20 @@
               <line x1="170" y1="62" x2="208" y2="62" class="diag-arrow" marker-end="url(#ar2)"/>
               <line x1="390" y1="62" x2="428" y2="62" class="diag-arrow" marker-end="url(#ar2)"/>
 
-              <!-- Drive: Processed (side branch from Make) -->
               <rect x="20" y="130" width="150" height="55" class="diag-box" rx="4"/>
               <text x="95" y="155" class="diag-text" text-anchor="middle">Drive: Processed</text>
               <text x="95" y="173" class="diag-text-sm" text-anchor="middle">State-via-location</text>
               <line x1="270" y1="90" x2="170" y2="155" class="diag-arrow" marker-end="url(#ar2)"/>
 
-              <!-- Sheet -->
               <rect x="210" y="200" width="370" height="65" class="diag-box-store" rx="4"/>
               <text x="395" y="227" class="diag-text" text-anchor="middle">Google Sheet</text>
               <text x="395" y="247" class="diag-text-sm" text-anchor="middle">Caption + status (Pending → Approved)</text>
               <line x1="330" y1="90" x2="330" y2="198" class="diag-arrow" marker-end="url(#ar2)"/>
 
-              <!-- Human gate -->
               <rect x="210" y="290" width="370" height="32" class="diag-box-gate" rx="4"/>
               <text x="395" y="311" class="diag-text" text-anchor="middle">Human gate: Caption review &amp; approval</text>
               <line x1="395" y1="265" x2="395" y2="288" class="diag-arrow" marker-end="url(#ar2)"/>
 
-              <!-- Stage 2 -->
               <text x="20" y="365" class="diag-label">Stage 2 · GitHub Actions (every 3 days)</text>
               <path d="M 395 322 Q 395 360 110 383" class="diag-arrow" marker-end="url(#ar2)"/>
 
@@ -378,9 +387,50 @@
   </div>
 </section>
 
+<section id="analysis">
+  <div class="container">
+    <div class="section-eyebrow">02 — Research &amp; Analysis</div>
+    <h2 class="section-title">Cross-vendor synthesis where domain judgment <em>shaped the questions</em>.</h2>
+
+    <article class="analysis-card">
+      <div class="analysis-meta">
+        <span class="label">Year</span>2026
+        <span class="label">Role</span>Researcher &amp; synthesizer
+        <span class="label">Stack</span>
+        <span class="tag">Claude</span><span class="tag">Gemini</span><span class="tag">Web research</span>
+        <span class="label">Pattern</span>
+        <span class="tag">AI-directed synthesis</span><span class="tag">Cross-vendor framing</span>
+        <a class="project-link" href="/HCM_Pain_Points_Analysis.pdf" target="_blank" rel="noopener">Read the full PDF →</a>
+      </div>
+      <div class="analysis-body">
+        <h3>Cross-Vendor HCM Pain-Point Analysis</h3>
+        <p class="subhead">Oracle FDI · Workday · SAP SuccessFactors · UKG · Dayforce · ADP · Rippling · BambooHR · Gusto</p>
+        <p class="lede"><strong>What it is:</strong> A synthesis of customer-reported pain points across nine HCM vendors, drawing from 17+ research platforms (Gartner Peer Insights, G2, Capterra, Trustpilot, BBB, PeerSpot, PwC Global Payroll Survey, HBR Analytic Services, Korn Ferry CHRO survey, Forrester, Mordor Intelligence, NelsonHall NEAT).</p>
+
+        <p>The first three sections are the kind of output you'd expect from a careful AI-augmented research pass: top pain points per vendor, sourced and dated. The work that matters is in <strong>sections 4–6</strong>, where the analysis pivots to cross-vendor synthesis and takes a position.</p>
+
+        <div class="architecture-callout">
+          <div class="ac-label">How this was made</div>
+          <p>An AI-directed synthesis, not a hand-built research report. I used Claude and Gemini for source aggregation, citation-checking, and drafting; the work I brought was knowing which questions to ask, which framings to test, which sources were credible (vendor case studies were excluded), and where the synthesis pivots from listing to arguing. The conclusions below are the part of the artifact that is mine — they're the questions an HCM domain expert asks of the data, not what an LLM volunteers.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Three positions the analysis takes:</strong></p>
+
+        <ul class="findings-list">
+          <li><strong>Reporting &amp; Analytics is the universal #1 pain across the HCM customer base</strong> — true for Oracle FDI customers, Workday customers, and SMB customers alike, despite very different buyer profiles and price points. The shape of the complaint differs by vendor, but the underlying mismatch (out-of-the-box content versus what HR teams actually need) is the same.</li>
+          <li><strong>HCM compliance pain is not exclusively a payroll problem</strong> — a common industry misperception. Six non-payroll compliance pain areas (Benefits Administration, Pay Equity, Time &amp; Labor, Leave Management, Data Privacy, Statutory Reporting) are comparable in customer-impact volume to payroll, and Pay Equity is the fastest-growing new pain heading into 2026 driven by EU and US state regulation.</li>
+          <li><strong>Workforce Planning and Attrition Analytics are the most underserved subject areas</strong> in standard HCM analytics layers across all nine vendors — the gap that drives the specialty-vendor market (Visier, Anaplan, Workday Adaptive) and the most defensible opportunity for vendor-neutral compliance and analytics tooling.</li>
+        </ul>
+
+        <p>Each position is defended in the full analysis with sourced evidence per vendor and per pain category.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
 <section id="oracle">
   <div class="container">
-    <div class="section-eyebrow">02 — Day Job</div>
+    <div class="section-eyebrow">03 — Day Job</div>
     <h2 class="section-title">Twenty years at Oracle. Principal-level <em>product integrity</em> across the HCM stack.</h2>
 
     <div class="tenure-header">
@@ -429,7 +479,7 @@
 
 <section id="about">
   <div class="container">
-    <div class="section-eyebrow">03 — About</div>
+    <div class="section-eyebrow">04 — About</div>
     <h2 class="section-title">How I think about the work.</h2>
 
     <div class="about-content">
