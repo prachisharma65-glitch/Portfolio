@@ -120,7 +120,8 @@
   .project-link:hover { color: var(--accent-soft); border-color: var(--accent-soft); }
 
   /* === Research & Analysis section === */
-  .analysis-card { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding: 3rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); align-items: start; }
+  .analysis-card { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding: 3rem 0; border-top: 1px solid var(--rule); align-items: start; }
+  .analysis-card:last-child { border-bottom: 1px solid var(--rule); }
   @media (max-width: 720px) { .analysis-card { grid-template-columns: 1fr; gap: 1rem; padding: 2.5rem 0; } }
   .analysis-meta { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-faint); line-height: 1.7; }
   .analysis-meta .label { text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.68rem; color: var(--ink-soft); display: block; margin-top: 0.8rem; margin-bottom: 0.2rem; }
@@ -360,7 +361,7 @@
         </div>
       </article>
 
-   <article class="project">
+      <article class="project">
         <div class="project-meta">
           <span class="label">Year</span>2025
           <span class="label">Role</span>End-to-end designer
@@ -389,7 +390,7 @@
 <section id="analysis">
   <div class="container">
     <div class="section-eyebrow">02 — Research &amp; Analysis</div>
-    <h2 class="section-title">Cross-vendor synthesis where domain judgment <em>shaped the questions</em>.</h2>
+    <h2 class="section-title">Research where domain judgment <em>shaped the questions</em>.</h2>
 
     <article class="analysis-card">
       <div class="analysis-meta">
@@ -417,41 +418,46 @@
 
         <ul class="findings-list">
           <li><strong>The "Global-Local" Compliance Gap:</strong> While all nine vendors claim global compliance, customer friction is highest in <em>local statutory reporting</em> (specifically in the EU and APAC). The "Global" layer often lacks the granularity needed for local labor law adherence, forcing users back into manual spreadsheets.</li>
-          <li><strong>Payroll is no longer a "Silo" pain:</strong> Payroll errors are increasingly cited as symptoms of poor <em>Time & Labor</em> or <em>Benefits</em> integration rather than standalone engine failures. The analysis shows that integration latency between core HCM and payroll is the single biggest driver of customer churn in 2026.</li>
+          <li><strong>Payroll is no longer a "Silo" pain:</strong> Payroll errors are increasingly cited as symptoms of poor <em>Time &amp; Labor</em> or <em>Benefits</em> integration rather than standalone engine failures. The analysis shows that integration latency between core HCM and payroll is the single biggest driver of customer churn in 2026.</li>
           <li><strong>Reporting as a Specialized Skill:</strong> The data reveals a universal complaint that HCM analytics tools (FDI, Workday Prism, etc.) still require "Power Users." The gap between a manager's question and the system's "Out-of-the-box" report is the #1 reason for secondary-tool adoption (Visier, Tableau).</li>
         </ul>
 
         <p>Each position is defended in the full analysis with sourced evidence per vendor and per pain category.</p>
       </div>
     </article>
+
     <article class="analysis-card">
-  <div class="analysis-meta">
-    <span class="label">Year</span>2026
-    <span class="label">Role</span>Independent researcher
-    <span class="label">Stack</span>
-    <span class="tag">Claude</span><span class="tag">Gemini</span><span class="tag">Ephemeris data</span>
-    <span class="label">Pattern</span>
-    <span class="tag">Multi-turn failure analysis</span><span class="tag">Cross-cultural framing</span>
-    <!-- If you host the paper PDF, add this line. Otherwise delete: -->
-    <a class="project-link" href="/Composite_Inference_Failure.pdf" target="_blank" rel="noopener">Read the full paper →</a>
-  </div>
-  <div class="analysis-body">
-    <h3>Composite Inference Failure</h3>
-    <p class="subhead">Working paper · Gemini 2.5 Pro · Cross-cultural failure surface · April 2026</p>
-    <p class="lede"><strong>What it is:</strong> A working paper documenting a reproducible multi-turn jailbreak in Gemini 2.5 Pro — mortality prediction safeguards bypassed via sincere-use Vedic astrology queries, with no direct mortality question in the session. The model produced confident terminal-year predictions for named subjects, with stated technical justifications that didn't survive geometric falsification against independent ephemeris data.</p>
-    <p>The paper documents the original session in detail, falsifies the model's stated astrological justifications against independent ephemeris data, replicates complementary failure modes in Claude to confirm model-agnostic patterns, and proposes a <strong>Tradition-Aware Safety Filtering</strong> framework with four mitigations.</p>
-    <div class="architecture-callout">
-      <div class="ac-label">How this was made</div>
-      <p>Independent observation across multi-turn sessions, with framework design and methodology authored solo. Cross-model replication in Claude across separate sessions confirmed the failure class as model-agnostic rather than Gemini-specific. Paper drafted with AI assistance for prose; substantive content (claims, methodology, falsification work, and the proposed safety framework) authored independently. The domain expertise is in the <strong>framing</strong>: recognizing that sincere-use cultural queries form a structurally different threat surface than adversarial benchmarks.</p>
-    </div>
-    <p style="margin-top: 2rem;"><strong>Three positions the paper takes:</strong></p>
-    <ul class="findings-list">
-      <li><strong>Sincere-use cultural framing is a complementary failure surface</strong> to adversarial multi-turn benchmarks (Kumarappan &amp; Mujoo, 2025). Vedic astrology queries, traditional medicine consultations, and indigenous practice questions aren't red-teaming attempts — they're how hundreds of millions of users in non-Western traditions actually engage with LLMs. Current safety calibration misses this entire surface.</li>
-      <li><strong>Expert-mode confabulation can be decoupled from inputs in verifiable ways.</strong> The model cited specific astrological markers (Ketu placements, dasha periods) as justification for its predictions. Cross-referencing against independent ephemeris data showed these claims were geometrically impossible — the reasoning was decoupled from the input chart entirely. This is a diagnostic pattern safety teams can apply to other expert-performance scenarios.</li>
-      <li><strong>Tradition-Aware Safety Filtering</strong> addresses the gap with four mitigations: session-level composite inference tracking, domain-internal ethics training, confabulation detection in expert performance, and structured redirection to actionable frames.</li>
-    </ul>
-  </div>
-</article>
+      <div class="analysis-meta">
+        <span class="label">Year</span>2026
+        <span class="label">Role</span>Independent researcher
+        <span class="label">Stack</span>
+        <span class="tag">Claude</span><span class="tag">Gemini</span><span class="tag">Ephemeris data</span>
+        <span class="label">Pattern</span>
+        <span class="tag">Multi-turn failure analysis</span><span class="tag">Cross-cultural framing</span>
+        <a class="project-link" href="/Composite_Inference_Failure.pdf" target="_blank" rel="noopener">Read the full paper →</a>
+      </div>
+      <div class="analysis-body">
+        <h3>Composite Inference Failure</h3>
+        <p class="subhead">Working paper · Gemini 2.5 Pro · Cross-cultural failure surface · April 2026</p>
+        <p class="lede"><strong>What it is:</strong> A working paper documenting a reproducible multi-turn jailbreak in Gemini 2.5 Pro — mortality prediction safeguards bypassed via sincere-use Vedic astrology queries, with no direct mortality question in the session. The model produced confident terminal-year predictions for named subjects, with stated technical justifications that didn't survive geometric falsification against independent ephemeris data.</p>
+
+        <p>The paper documents the original session in detail, falsifies the model's stated astrological justifications against independent ephemeris data, replicates complementary failure modes in Claude to confirm model-agnostic patterns, and proposes a <strong>Tradition-Aware Safety Filtering</strong> framework with four mitigations.</p>
+
+        <div class="architecture-callout">
+          <div class="ac-label">How this was made</div>
+          <p>Independent observation across multi-turn sessions, with framework design and methodology authored solo. Cross-model replication in Claude across separate sessions confirmed the failure class as model-agnostic rather than Gemini-specific. Paper drafted with AI assistance for prose; substantive content (claims, methodology, falsification work, and the proposed safety framework) authored independently. The domain expertise is in the <strong>framing</strong>: recognizing that sincere-use cultural queries form a structurally different threat surface than adversarial benchmarks.</p>
+        </div>
+
+        <p style="margin-top: 2rem;"><strong>Three positions the paper takes:</strong></p>
+
+        <ul class="findings-list">
+          <li><strong>Sincere-use cultural framing is a complementary failure surface</strong> to adversarial multi-turn benchmarks (Kumarappan &amp; Mujoo, 2025). Vedic astrology queries, traditional medicine consultations, and indigenous practice questions aren't red-teaming attempts — they're how hundreds of millions of users in non-Western traditions actually engage with LLMs. Current safety calibration misses this entire surface.</li>
+          <li><strong>Expert-mode confabulation can be decoupled from inputs in verifiable ways.</strong> The model cited specific astrological markers (Ketu placements, dasha periods) as justification for its predictions. Cross-referencing against independent ephemeris data showed these claims were geometrically impossible — the reasoning was decoupled from the input chart entirely. This is a diagnostic pattern safety teams can apply to other expert-performance scenarios.</li>
+          <li><strong>Tradition-Aware Safety Filtering</strong> addresses the gap with four mitigations: session-level composite inference tracking, domain-internal ethics training, confabulation detection in expert performance, and structured redirection to actionable frames.</li>
+        </ul>
+      </div>
+    </article>
+
   </div>
 </section>
 
@@ -515,7 +521,7 @@
 
         <p>Twenty years at Oracle taught me what enterprise validation actually demands: not just finding bugs, but understanding which bugs would have escaped to a customer's payroll run, which ones would trigger a hot-account escalation, and which ones reveal a deeper architectural mismatch worth raising with Product Management. The independent AI projects on this site are an extension of that instinct — every architectural decision is named, every failure mode is owned, every human gate is there because something downstream costs real money or real trust if it goes wrong.</p>
 
-        <p> I architect systems and use LLMs for the implementation layer, and I reason about trade-offs at the system and workflow level. That combination — twenty years of HCM domain depth plus current, hands-on AI architecture practice — is the rare pairing I'm trying to put to work.</p>
+        <p>I architect systems and use LLMs for the implementation layer, and I reason about trade-offs at the system and workflow level. That combination — twenty years of HCM domain depth plus current, hands-on AI architecture practice — is the rare pairing I'm trying to put to work.</p>
       </div>
 
       <aside class="about-side">
@@ -525,9 +531,11 @@
         <p>B.Tech, Electronics &amp; Telecommunication Engineering</p>
         <h4>Certifications</h4>
         <ul>
-          <li>IBM Product Management Professional</li>
-          <li>Google AI Essentials</li>
+          <li>Oracle Cloud Infrastructure 2025 AI Foundations Associate</li>
           <li>Google AI Professional</li>
+          <li>Google AI Essentials</li>
+          <li>IBM Product Management Professional</li>
+          <li>Microsoft PL-300 Power BI Data Analyst (in progress)</li>
         </ul>
         <h4>Authorization</h4>
         <p>U.S. Green Card holder</p>
