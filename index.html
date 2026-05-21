@@ -370,17 +370,16 @@
           <span class="tag">Validation framework</span><span class="tag">Provenance</span>
           <a class="project-link" href="https://workforce-digest.vercel.app" target="_blank" rel="noopener">View prototype →</a>
         </div>
-        <div class="project-body">
-          <h3>Workforce Digest</h3>
-          <p class="subhead">Concept prototype — SMB HR analytics</p>
-          <p class="what-it-is"><strong>What it is:</strong> A weekly Monday brief that turns HRIS data into 3–4 things HR managers should act on, with full transparency about how each alert was derived.</p>
-          <p>Built end-to-end: rule-based detection engine, transparent provenance for every alert, multi-layer validation framework (cross-signal corroboration, outcome-based checks, randomized holdout), and a 10-case Python eval suite for catching regressions.</p>
-
-          <div class="architecture-callout">
-            <div class="ac-label">Architectural decision</div>
-            <p>Designed the validation layer specifically to address the <em>prevention paradox</em> — when an intervention succeeds, you can never know if the alert was right or noisy. Cross-signal corroboration plus outcome-based checks plus a randomized holdout were necessary because no single check could distinguish a genuinely caught risk from a false positive that resolved on its own.</p>
-          </div>
-        </div>
+       <div class="project-body">
+  <h3>Composite Inference Failure</h3>
+  <p class="subhead">LLM safety working paper — Multi-turn jailbreak via cultural framing</p>
+  <p class="what-it-is"><strong>What it is:</strong> A working paper documenting a reproducible multi-turn jailbreak in Gemini 2.5 Pro — mortality prediction safeguards bypassed via sincere-use Vedic astrology queries, with no direct mortality question in the session. The model produced confident terminal-year predictions for named subjects, with stated technical justifications that didn't survive geometric falsification against independent ephemeris data.</p>
+  <p>Independent observation and methodology — the testing, falsification work, and framework design were done solo. Cross-model replication in Claude across separate career advice sessions confirmed the failure class as model-agnostic. Paper drafted with AI assistance for prose; substantive content (claims, methodology, falsification, framework) authored independently.</p>
+  <div class="architecture-callout">
+    <div class="ac-label">Research positioning</div>
+    <p>Frames sincere-use cultural queries as a complementary failure surface to adversarial multi-turn benchmarks (Kumarappan &amp; Mujoo, 2025). Vedic astrology, traditional medicine, and indigenous practice queries aren't red-teaming attempts — they're how hundreds of millions of users in non-Western traditions actually engage with LLMs. Current safety calibration misses this entire surface. Proposed <em>Tradition-Aware Safety Filtering</em> framework with four mitigations: session-level composite inference tracking, domain-internal ethics training, confabulation detection in expert performance, and structured redirection to actionable frames.</p>
+  </div>
+</div>  </div>
       </article>
 
     </div>
@@ -425,6 +424,34 @@
         <p>Each position is defended in the full analysis with sourced evidence per vendor and per pain category.</p>
       </div>
     </article>
+    <article class="analysis-card">
+  <div class="analysis-meta">
+    <span class="label">Year</span>2026
+    <span class="label">Role</span>Independent researcher
+    <span class="label">Stack</span>
+    <span class="tag">Claude</span><span class="tag">Gemini</span><span class="tag">Ephemeris data</span>
+    <span class="label">Pattern</span>
+    <span class="tag">Multi-turn failure analysis</span><span class="tag">Cross-cultural framing</span>
+    <!-- If you host the paper PDF, add this line. Otherwise delete: -->
+    <a class="project-link" href="/Composite_Inference_Failure.pdf" target="_blank" rel="noopener">Read the full paper →</a>
+  </div>
+  <div class="analysis-body">
+    <h3>Composite Inference Failure</h3>
+    <p class="subhead">Working paper · Gemini 2.5 Pro · Cross-cultural failure surface · April 2026</p>
+    <p class="lede"><strong>What it is:</strong> A working paper documenting a reproducible multi-turn jailbreak in Gemini 2.5 Pro — mortality prediction safeguards bypassed via sincere-use Vedic astrology queries, with no direct mortality question in the session. The model produced confident terminal-year predictions for named subjects, with stated technical justifications that didn't survive geometric falsification against independent ephemeris data.</p>
+    <p>The paper documents the original session in detail, falsifies the model's stated astrological justifications against independent ephemeris data, replicates complementary failure modes in Claude to confirm model-agnostic patterns, and proposes a <strong>Tradition-Aware Safety Filtering</strong> framework with four mitigations.</p>
+    <div class="architecture-callout">
+      <div class="ac-label">How this was made</div>
+      <p>Independent observation across multi-turn sessions, with framework design and methodology authored solo. Cross-model replication in Claude across separate sessions confirmed the failure class as model-agnostic rather than Gemini-specific. Paper drafted with AI assistance for prose; substantive content (claims, methodology, falsification work, and the proposed safety framework) authored independently. The domain expertise is in the <strong>framing</strong>: recognizing that sincere-use cultural queries form a structurally different threat surface than adversarial benchmarks.</p>
+    </div>
+    <p style="margin-top: 2rem;"><strong>Three positions the paper takes:</strong></p>
+    <ul class="findings-list">
+      <li><strong>Sincere-use cultural framing is a complementary failure surface</strong> to adversarial multi-turn benchmarks (Kumarappan &amp; Mujoo, 2025). Vedic astrology queries, traditional medicine consultations, and indigenous practice questions aren't red-teaming attempts — they're how hundreds of millions of users in non-Western traditions actually engage with LLMs. Current safety calibration misses this entire surface.</li>
+      <li><strong>Expert-mode confabulation can be decoupled from inputs in verifiable ways.</strong> The model cited specific astrological markers (Ketu placements, dasha periods) as justification for its predictions. Cross-referencing against independent ephemeris data showed these claims were geometrically impossible — the reasoning was decoupled from the input chart entirely. This is a diagnostic pattern safety teams can apply to other expert-performance scenarios.</li>
+      <li><strong>Tradition-Aware Safety Filtering</strong> addresses the gap with four mitigations: session-level composite inference tracking, domain-internal ethics training, confabulation detection in expert performance, and structured redirection to actionable frames.</li>
+    </ul>
+  </div>
+</article>
   </div>
 </section>
 
