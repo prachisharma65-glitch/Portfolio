@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prachi Sharma — Architecture, AI, and HR Tech</title>
 <meta name="description" content="Principal-level architect with 20 years in Oracle HCM and current hands-on AI workflow design.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&amp;family=JetBrains+Mono:wght@400;500&amp;family=Inter+Tight:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #1a1814;
@@ -132,6 +131,9 @@
   .analysis-body p { font-size: 1rem; line-height: 1.7; color: var(--ink-soft); margin-bottom: 1rem; max-width: 65ch; }
   .analysis-body .lede { color: var(--ink); font-size: 1.05rem; }
   .analysis-body strong { color: var(--ink); font-weight: 500; }
+  .research-subsection { margin-top: 5rem; padding: 2rem 0 1rem; border-top: 2px solid var(--ink); }
+  .research-subsection .section-eyebrow { margin-bottom: 0.85rem; }
+  .research-subsection p { max-width: 65ch; color: var(--ink-soft); font-size: 1rem; line-height: 1.7; }
   .findings-list { list-style: none; margin: 1.5rem 0 1.5rem; max-width: 65ch; }
   .findings-list li { position: relative; padding: 0.8rem 0 0.8rem 2rem; border-top: 1px solid var(--rule); font-size: 0.98rem; line-height: 1.65; color: var(--ink-soft); }
   .findings-list li:last-child { border-bottom: 1px solid var(--rule); }
@@ -231,51 +233,51 @@
             <svg viewBox="0 0 700 480" role="img" aria-label="eBay 3D print pipeline architecture">
               <defs>
                 <marker id="ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                  <path d="M0 0 L10 5 L0 10 z" fill="#4a463e"/>
+                  <path d="M0 0 L10 5 L0 10 z" fill="#4a463e"></path>
                 </marker>
               </defs>
               <text x="20" y="20" class="diag-label">Pipeline A · Apps Script (time-driven)</text>
-              <rect x="20" y="35" width="150" height="55" class="diag-box" rx="4"/>
+              <rect x="20" y="35" width="150" height="55" class="diag-box" rx="4"></rect>
               <text x="95" y="60" class="diag-text" text-anchor="middle">Gmail</text>
               <text x="95" y="78" class="diag-text-sm" text-anchor="middle">eBay sale emails</text>
-              <rect x="210" y="35" width="180" height="55" class="diag-box-accent" rx="4"/>
+              <rect x="210" y="35" width="180" height="55" class="diag-box-accent" rx="4"></rect>
               <text x="300" y="60" class="diag-text" text-anchor="middle">Apps Script</text>
               <text x="300" y="78" class="diag-text-sm" text-anchor="middle">Regex parse + dedup</text>
-              <rect x="430" y="35" width="150" height="55" class="diag-box" rx="4"/>
+              <rect x="430" y="35" width="150" height="55" class="diag-box" rx="4"></rect>
               <text x="505" y="60" class="diag-text" text-anchor="middle">Alert email</text>
               <text x="505" y="78" class="diag-text-sm" text-anchor="middle">If data missing</text>
-              <line x1="170" y1="62" x2="208" y2="62" class="diag-arrow" marker-end="url(#ar1)"/>
-              <line x1="390" y1="62" x2="428" y2="62" class="diag-arrow" marker-end="url(#ar1)"/>
+              <line x1="170" y1="62" x2="208" y2="62" class="diag-arrow" marker-end="url(#ar1)"></line>
+              <line x1="390" y1="62" x2="428" y2="62" class="diag-arrow" marker-end="url(#ar1)"></line>
 
-              <rect x="190" y="160" width="320" height="65" class="diag-box-store" rx="4"/>
+              <rect x="190" y="160" width="320" height="65" class="diag-box-store" rx="4"></rect>
               <text x="350" y="187" class="diag-text" text-anchor="middle">Google Sheet</text>
               <text x="350" y="207" class="diag-text-sm" text-anchor="middle">Integration contract + status column</text>
-              <line x1="300" y1="90" x2="300" y2="158" class="diag-arrow" marker-end="url(#ar1)"/>
+              <line x1="300" y1="90" x2="300" y2="158" class="diag-arrow" marker-end="url(#ar1)"></line>
               <text x="310" y="128" class="diag-text-sm">writes status = To Be Printed</text>
 
               <text x="20" y="270" class="diag-label">Pipeline B · GitHub Actions (cron, every 30 min)</text>
-              <line x1="350" y1="225" x2="350" y2="287" class="diag-arrow" marker-end="url(#ar1)"/>
+              <line x1="350" y1="225" x2="350" y2="287" class="diag-arrow" marker-end="url(#ar1)"></line>
               <text x="360" y="262" class="diag-text-sm">reads rows where status = To Be Printed</text>
 
-              <rect x="20" y="295" width="150" height="55" class="diag-box-accent" rx="4"/>
+              <rect x="20" y="295" width="150" height="55" class="diag-box-accent" rx="4"></rect>
               <text x="95" y="320" class="diag-text" text-anchor="middle">Python script</text>
               <text x="95" y="338" class="diag-text-sm" text-anchor="middle">Substring router</text>
-              <rect x="210" y="295" width="180" height="55" class="diag-box-accent" rx="4"/>
+              <rect x="210" y="295" width="180" height="55" class="diag-box-accent" rx="4"></rect>
               <text x="300" y="320" class="diag-text" text-anchor="middle">OpenSCAD</text>
               <text x="300" y="338" class="diag-text-sm" text-anchor="middle">Deterministic compile</text>
-              <rect x="430" y="295" width="150" height="55" class="diag-box-accent" rx="4"/>
+              <rect x="430" y="295" width="150" height="55" class="diag-box-accent" rx="4"></rect>
               <text x="505" y="320" class="diag-text" text-anchor="middle">git commit STL</text>
               <text x="505" y="338" class="diag-text-sm" text-anchor="middle">Repo as artifact store</text>
-              <line x1="170" y1="322" x2="208" y2="322" class="diag-arrow" marker-end="url(#ar1)"/>
-              <line x1="390" y1="322" x2="428" y2="322" class="diag-arrow" marker-end="url(#ar1)"/>
+              <line x1="170" y1="322" x2="208" y2="322" class="diag-arrow" marker-end="url(#ar1)"></line>
+              <line x1="390" y1="322" x2="428" y2="322" class="diag-arrow" marker-end="url(#ar1)"></line>
 
               <text x="20" y="410" class="diag-label">Human gate · 2 stages</text>
-              <rect x="20" y="425" width="270" height="32" class="diag-box-gate" rx="4"/>
+              <rect x="20" y="425" width="270" height="32" class="diag-box-gate" rx="4"></rect>
               <text x="155" y="446" class="diag-text" text-anchor="middle">Stage 1: STL inspection</text>
-              <rect x="310" y="425" width="270" height="32" class="diag-box-gate" rx="4"/>
+              <rect x="310" y="425" width="270" height="32" class="diag-box-gate" rx="4"></rect>
               <text x="445" y="446" class="diag-text" text-anchor="middle">Stage 2: Print dispatch</text>
-              <path d="M 505 350 Q 505 390 155 423" class="diag-arrow" marker-end="url(#ar1)"/>
-              <line x1="290" y1="441" x2="308" y2="441" class="diag-arrow" marker-end="url(#ar1)"/>
+              <path d="M 505 350 Q 505 390 155 423" class="diag-arrow" marker-end="url(#ar1)"></path>
+              <line x1="290" y1="441" x2="308" y2="441" class="diag-arrow" marker-end="url(#ar1)"></line>
             </svg>
           </div>
 
@@ -308,47 +310,47 @@
             <svg viewBox="0 0 700 440" role="img" aria-label="YouTube reel pipeline architecture">
               <defs>
                 <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                  <path d="M0 0 L10 5 L0 10 z" fill="#4a463e"/>
+                  <path d="M0 0 L10 5 L0 10 z" fill="#4a463e"></path>
                 </marker>
               </defs>
               <text x="20" y="20" class="diag-label">Stage 1 · Make.com (event-driven on Drive)</text>
-              <rect x="20" y="35" width="150" height="55" class="diag-box" rx="4"/>
+              <rect x="20" y="35" width="150" height="55" class="diag-box" rx="4"></rect>
               <text x="95" y="60" class="diag-text" text-anchor="middle">Drive: Inbox</text>
               <text x="95" y="78" class="diag-text-sm" text-anchor="middle">New reel dropped</text>
-              <rect x="210" y="35" width="180" height="55" class="diag-box-accent" rx="4"/>
+              <rect x="210" y="35" width="180" height="55" class="diag-box-accent" rx="4"></rect>
               <text x="300" y="60" class="diag-text" text-anchor="middle">Make.com</text>
               <text x="300" y="78" class="diag-text-sm" text-anchor="middle">Calls Gemini, writes sheet</text>
-              <rect x="430" y="35" width="150" height="55" class="diag-box-accent" rx="4"/>
+              <rect x="430" y="35" width="150" height="55" class="diag-box-accent" rx="4"></rect>
               <text x="505" y="60" class="diag-text" text-anchor="middle">Gemini</text>
               <text x="505" y="78" class="diag-text-sm" text-anchor="middle">Transcribe + draft</text>
-              <line x1="170" y1="62" x2="208" y2="62" class="diag-arrow" marker-end="url(#ar2)"/>
-              <line x1="390" y1="62" x2="428" y2="62" class="diag-arrow" marker-end="url(#ar2)"/>
+              <line x1="170" y1="62" x2="208" y2="62" class="diag-arrow" marker-end="url(#ar2)"></line>
+              <line x1="390" y1="62" x2="428" y2="62" class="diag-arrow" marker-end="url(#ar2)"></line>
 
-              <rect x="20" y="130" width="150" height="55" class="diag-box" rx="4"/>
+              <rect x="20" y="130" width="150" height="55" class="diag-box" rx="4"></rect>
               <text x="95" y="155" class="diag-text" text-anchor="middle">Drive: Processed</text>
               <text x="95" y="173" class="diag-text-sm" text-anchor="middle">State-via-location</text>
-              <line x1="270" y1="90" x2="170" y2="155" class="diag-arrow" marker-end="url(#ar2)"/>
+              <line x1="270" y1="90" x2="170" y2="155" class="diag-arrow" marker-end="url(#ar2)"></line>
 
-              <rect x="210" y="200" width="370" height="65" class="diag-box-store" rx="4"/>
+              <rect x="210" y="200" width="370" height="65" class="diag-box-store" rx="4"></rect>
               <text x="395" y="227" class="diag-text" text-anchor="middle">Google Sheet</text>
               <text x="395" y="247" class="diag-text-sm" text-anchor="middle">Caption + status (Pending → Approved)</text>
-              <line x1="330" y1="90" x2="330" y2="198" class="diag-arrow" marker-end="url(#ar2)"/>
+              <line x1="330" y1="90" x2="330" y2="198" class="diag-arrow" marker-end="url(#ar2)"></line>
 
-              <rect x="210" y="290" width="370" height="32" class="diag-box-gate" rx="4"/>
+              <rect x="210" y="290" width="370" height="32" class="diag-box-gate" rx="4"></rect>
               <text x="395" y="311" class="diag-text" text-anchor="middle">Human gate: Caption review &amp; approval</text>
-              <line x1="395" y1="265" x2="395" y2="288" class="diag-arrow" marker-end="url(#ar2)"/>
+              <line x1="395" y1="265" x2="395" y2="288" class="diag-arrow" marker-end="url(#ar2)"></line>
 
               <text x="20" y="365" class="diag-label">Stage 2 · GitHub Actions (every 3 days)</text>
-              <path d="M 395 322 Q 395 360 110 383" class="diag-arrow" marker-end="url(#ar2)"/>
+              <path d="M 395 322 Q 395 360 110 383" class="diag-arrow" marker-end="url(#ar2)"></path>
 
-              <rect x="20" y="385" width="180" height="35" class="diag-box-accent" rx="4"/>
+              <rect x="20" y="385" width="180" height="35" class="diag-box-accent" rx="4"></rect>
               <text x="110" y="407" class="diag-text" text-anchor="middle">Python: read Approved</text>
-              <rect x="230" y="385" width="180" height="35" class="diag-box-accent" rx="4"/>
+              <rect x="230" y="385" width="180" height="35" class="diag-box-accent" rx="4"></rect>
               <text x="320" y="407" class="diag-text" text-anchor="middle">Drive fetch reel</text>
-              <rect x="440" y="385" width="200" height="35" class="diag-box-accent" rx="4"/>
+              <rect x="440" y="385" width="200" height="35" class="diag-box-accent" rx="4"></rect>
               <text x="540" y="407" class="diag-text" text-anchor="middle">YouTube API publish</text>
-              <line x1="200" y1="402" x2="228" y2="402" class="diag-arrow" marker-end="url(#ar2)"/>
-              <line x1="410" y1="402" x2="438" y2="402" class="diag-arrow" marker-end="url(#ar2)"/>
+              <line x1="200" y1="402" x2="228" y2="402" class="diag-arrow" marker-end="url(#ar2)"></line>
+              <line x1="410" y1="402" x2="438" y2="402" class="diag-arrow" marker-end="url(#ar2)"></line>
             </svg>
           </div>
 
@@ -426,6 +428,11 @@
       </div>
     </article>
 
+    <div class="research-subsection">
+      <div class="section-eyebrow">Independent AI Safety &amp; Evaluation Research — 4 Papers</div>
+      <p>Four empirical studies of where commercial LLMs lose judgment under multi-turn, emotional, legal-compliance, and advice-seeking pressure — and what stronger evaluation needs to measure instead.</p>
+    </div>
+
     <article class="analysis-card">
       <div class="analysis-meta">
         <span class="label">Year</span>2026
@@ -438,23 +445,63 @@
       </div>
       <div class="analysis-body">
         <h3>Composite Inference Failure</h3>
-        <p class="subhead">Working paper · Gemini 2.5 Pro · Cross-cultural failure surface · April 2026</p>
-        <p class="lede"><strong>What it is:</strong> A working paper documenting a reproducible multi-turn jailbreak in Gemini 2.5 Pro — mortality prediction safeguards bypassed via sincere-use Vedic astrology queries, with no direct mortality question in the session. The model produced confident terminal-year predictions for named subjects, with stated technical justifications that didn't survive geometric falsification against independent ephemeris data.</p>
+        <p class="subhead">Multi-turn safety · Cross-cultural failure surface · Gemini 2.5 Pro</p>
+        <p class="lede"><strong>What it is:</strong> A case study of mortality safeguards bypassed across a sincere-use Vedic astrology conversation, even though no single turn directly asked for a death prediction.</p>
+        <p>The paper tests the model's stated astrological logic against independent ephemeris data, documents complementary failure patterns in Claude, and proposes <strong>Tradition-Aware Safety Filtering</strong> for risks that emerge only at the session level.</p>
+      </div>
+    </article>
 
-        <p>The paper documents the original session in detail, falsifies the model's stated astrological justifications against independent ephemeris data, replicates complementary failure modes in Claude to confirm model-agnostic patterns, and proposes a <strong>Tradition-Aware Safety Filtering</strong> framework with four mitigations.</p>
+    <article class="analysis-card">
+      <div class="analysis-meta">
+        <span class="label">Year</span>2026
+        <span class="label">Role</span>Independent researcher
+        <span class="label">Stack</span>
+        <span class="tag">Anthropic</span><span class="tag">OpenAI</span><span class="tag">Google</span>
+        <span class="label">Pattern</span>
+        <span class="tag">Child-facing evaluation</span><span class="tag">Age conditioning</span>
+        <a class="project-link" href="/Tone_Is_Not_Judgment.pdf" target="_blank" rel="noopener">Read the full paper →</a>
+      </div>
+      <div class="analysis-body">
+        <h3>Tone Is Not Judgment</h3>
+        <p class="subhead">Emotional sycophancy · Child-accessible LLMs · 48 conversations</p>
+        <p class="lede"><strong>What it is:</strong> A controlled study asking whether commercial LLMs can acknowledge a child's emotion without automatically endorsing the causal or self-evaluative claim attached to it.</p>
+        <p>Across three providers, four scenarios, and four age conditions, the models adapted tone to age more consistently than they changed their underlying judgment. The paper proposes <strong>examined affect</strong>: validate the feeling, then independently evaluate the interpretation.</p>
+      </div>
+    </article>
 
-        <div class="architecture-callout">
-          <div class="ac-label">How this was made</div>
-          <p>Independent observation across multi-turn sessions, with framework design and methodology authored solo. Cross-model replication in Claude across separate sessions confirmed the failure class as model-agnostic rather than Gemini-specific. Paper drafted with AI assistance for prose; substantive content (claims, methodology, falsification work, and the proposed safety framework) authored independently. The domain expertise is in the <strong>framing</strong>: recognizing that sincere-use cultural queries form a structurally different threat surface than adversarial benchmarks.</p>
-        </div>
+    <article class="analysis-card">
+      <div class="analysis-meta">
+        <span class="label">Year</span>2026
+        <span class="label">Role</span>Independent researcher
+        <span class="label">Stack</span>
+        <span class="tag">Gemini</span><span class="tag">Claude</span><span class="tag">HR compliance</span>
+        <span class="label">Pattern</span>
+        <span class="tag">Artifact-centered evaluation</span><span class="tag">Proxy laundering</span>
+        <a class="project-link" href="/Statutory_Domain_Asymmetry.pdf" target="_blank" rel="noopener">Read the full paper →</a>
+      </div>
+      <div class="analysis-body">
+        <h3>Statutory-Domain Asymmetry in LLM Compliance Guardrails</h3>
+        <p class="subhead">Enterprise HR compliance · Ten statutory domains · 300-conversation follow-up</p>
+        <p class="lede"><strong>What it is:</strong> A cross-model study of whether an LLM can recognize an unlawful employment objective yet still produce the document that operationalizes it.</p>
+        <p>The broader multi-domain pattern did not replicate in follow-up testing, but an ADEA-specific proxy-laundering vulnerability persisted. The practical lesson: <strong>grade the artifact, not the refusal language around it.</strong></p>
+      </div>
+    </article>
 
-        <p style="margin-top: 2rem;"><strong>Three positions the paper takes:</strong></p>
-
-        <ul class="findings-list">
-          <li><strong>Sincere-use cultural framing is a complementary failure surface</strong> to adversarial multi-turn benchmarks (Kumarappan &amp; Mujoo, 2025). Vedic astrology queries, traditional medicine consultations, and indigenous practice questions aren't red-teaming attempts — they're how hundreds of millions of users in non-Western traditions actually engage with LLMs. Current safety calibration misses this entire surface.</li>
-          <li><strong>Expert-mode confabulation can be decoupled from inputs in verifiable ways.</strong> The model cited specific astrological markers (Ketu placements, dasha periods) as justification for its predictions. Cross-referencing against independent ephemeris data showed these claims were geometrically impossible — the reasoning was decoupled from the input chart entirely. This is a diagnostic pattern safety teams can apply to other expert-performance scenarios.</li>
-          <li><strong>Tradition-Aware Safety Filtering</strong> addresses the gap with four mitigations: session-level composite inference tracking, domain-internal ethics training, confabulation detection in expert performance, and structured redirection to actionable frames.</li>
-        </ul>
+    <article class="analysis-card">
+      <div class="analysis-meta">
+        <span class="label">Year</span>2026
+        <span class="label">Role</span>Independent researcher
+        <span class="label">Stack</span>
+        <span class="tag">Gemini</span><span class="tag">Claude</span><span class="tag">GPT</span>
+        <span class="label">Pattern</span>
+        <span class="tag">Paired perspectives</span><span class="tag">Graded validation</span>
+        <a class="project-link" href="/Graded_Sycophancy_Confidant_Role.pdf" target="_blank" rel="noopener">Read the full paper →</a>
+      </div>
+      <div class="analysis-body">
+        <h3>Graded Sycophancy in the Confidant Role</h3>
+        <p class="subhead">Workplace advice · Paired perspectives · 90 provider-blinded transcripts</p>
+        <p class="lede"><strong>What it is:</strong> An exploratory study of whether LLMs apply a stable standard when employees and managers describe the same workplace dispute from opposing perspectives.</p>
+        <p>Only four responses met the strictest direct-endorsement threshold, while 45 showed qualified-or-direct affirmation. The gap exposes a measurement problem: <strong>binary sycophancy labels miss the graded validation that can still strengthen a user's disputed interpretation.</strong></p>
       </div>
     </article>
 
@@ -556,5 +603,6 @@
   </div>
 </footer>
 
-</body>
-</html>
+
+
+</body></html>
